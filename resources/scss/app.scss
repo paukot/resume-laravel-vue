@@ -1,0 +1,22 @@
+@use 'base' as *;
+@use 'resume/header';
+@use 'resume/introduction';
+@use 'resume/resume';
+@use 'resume/portfolio';
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Sansation:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&display=swap');
+
+@import 'primeicons/primeicons.css';
+
+//base site styles
+@include base;
+
+//secton stylings
+@include header.header-section;
+@include introduction.introduction-section;
+@include resume.resume-section;
+@include portfolio.portfolio-section;

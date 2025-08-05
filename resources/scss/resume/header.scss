@@ -1,0 +1,293 @@
+@use '../variables' as *;
+
+@mixin header-section {
+    .welcome-header {
+        background-image: url('./images/welcome-background-main.jpg');
+        background-size: cover;
+        background-position: center;
+        background-attachment: fixed;
+        background-repeat: no-repeat;
+        background-blend-mode: soft-light;
+        background-color: rgba(#000, 0.6);
+        position: relative;
+        height: 100vh;
+
+        .sticky {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 1000;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        &__container {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            clip: rect(0, auto, auto, 0);
+        }
+
+        &__container-title {
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            display: flex;
+
+            position: fixed;
+            top: 45%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            z-index: 3;
+        }
+
+        &__iconWrapper {
+            margin-bottom: 1em;
+            display: flex;
+            gap: .5rem;
+            justify-content: center;
+            align-items: center;
+        }
+
+        &__icon {
+            font-size: 2rem !important;
+            color: $accentColor;
+
+            &:last-child {
+                transform: rotateX(180deg);
+            }
+        }
+
+        &__title {
+            font-family: $fontFamilySecondary;
+            margin-bottom: .25em;
+            font-size: calc(4vw + 1em);
+            font-weight: 700;
+            text-shadow: 2px 2px 0 rgba(255, 255, 255, 0.4);
+        }
+
+        &__subtitle {
+            font-size: calc(1vw + 1em);
+            font-weight: 500;
+        }
+    }
+
+
+    .main-menu {
+        background: $primaryColor;
+        border-bottom: 2px solid $borderColor;
+        position: absolute;
+        z-index: 100;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        max-height: min-content;
+
+        @media (min-width: $lg) {
+            height: calc(8vh + 4rem);
+            max-height: 6rem;
+        }
+
+        .container {
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            position: relative;
+            padding: .5rem .5rem;
+            margin: 0 auto;
+
+            justify-content: space-between;
+
+            @media (min-width: $lg) {
+                flex-direction: row;
+            }
+        }
+
+        .burger-menu-container {
+
+            @media (min-width: $lg) {
+                display: none;
+            }
+
+            .burger-menu-button {
+                position: relative;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+
+                min-width: 2rem;
+                min-height: 2rem;
+            }
+
+            .open, .close {
+                display: block;
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%) rotate(0deg);
+                opacity: 0;
+                transition: opacity 0.3s ease-in-out, transform 0.3s ease-in-out;
+
+                .pi {
+                    font-size: 1.5rem !important;
+                }
+
+                &.active {
+                    opacity: 1;
+                    transform: translate(-50%, -50%) scale(1) rotate(180deg);
+                }
+
+                &:not(.active) {
+                    transform: translate(-50%, -50%) scale(0.8);
+                }
+
+            }
+
+
+        }
+
+        .link {
+            text-transform: none;
+            display: flex;
+            align-items: center;
+            padding: 1rem;
+            justify-content: left;
+
+            @media (min-width: $lg) {
+                padding: .25rem 1rem;
+                color: rgba($textColorPrimary, 0.75);
+                justify-content: center;
+
+                &:hover, &.active {
+                    color: $textColorPrimary;
+                }
+            }
+        }
+
+        &__burger-container {
+            display: flex;
+            flex-direction: column;
+
+            @media (min-width: $lg) {
+                flex-direction: row;
+            }
+
+            &.menu-mobile {
+                padding: 1rem 2rem;
+                position: absolute;
+                top: calc(100% + 2px);
+                right: 0;
+                left: 0;
+                bottom: -6rem;
+                background-color: $primaryColor;
+                max-height: min-content;
+
+                border-bottom: 1px solid $borderColor;
+
+
+                @media (min-width: $lg) {
+                    display: none;
+                }
+            }
+
+            &.menu-desktop {
+                display: none;
+                @media (min-width: $lg) {
+                    display: flex;
+                }
+            }
+
+            &.hidden {
+                display: none !important;
+            }
+        }
+
+        &__toggle-wrapper,
+        &__navbar-left,
+        &__navbar-center,
+        &__navbar-right {
+            display: flex;
+            flex-direction: column;
+
+            @media (min-width: $lg) {
+                flex-direction: row;
+                align-items: center;
+            }
+        }
+
+
+        &__navbar-left {
+            flex-direction: row;
+            justify-content: space-between;
+
+            font-size: 1.5rem;
+            font-weight: 700;
+            padding: .5rem 0;
+        }
+
+
+        &__navbar-center {
+            font-size: 1.5rem;
+            font-weight: 700;
+
+            @media (min-width: $md) {
+                font-size: 1.125rem;
+
+            }
+
+            @media (min-width: $lg) {
+                font-size: calc(.5vw + .75em);
+            }
+
+            @media (min-width: $lg) {
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+
+                font-size: 1.25rem;
+            }
+
+            .main-menu__nav {
+
+            }
+
+        }
+
+        &__navbar-right {
+            font-weight: 700;
+            font-size: calc(1vw + 1em);
+
+
+            .main-menu__nav {
+                flex-direction: row;
+            }
+        }
+
+        &__toggle-wrapper {
+
+        }
+
+        &__nav {
+            display: flex;
+            flex-direction: column;
+
+            @media (min-width: $md) {
+                flex-direction: row;
+                justify-content: center;
+            }
+        }
+
+
+        &__social-icons {
+            padding: .5rem 0;
+
+            @media (min-width: $lg) {
+                padding: 0;
+            }
+        }
+    }
+
+}

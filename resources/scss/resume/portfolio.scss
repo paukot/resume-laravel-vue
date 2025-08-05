@@ -1,0 +1,65 @@
+@use '../variables' as *;
+
+@mixin portfolio-section {
+    .portfolio {
+
+        .container {
+            position: relative;
+            margin: 0 auto;
+
+            @media (min-width: $md) {
+                display: grid;
+                grid-template-columns: 200px auto;
+            }
+        }
+
+        .side-menu-scroll {
+            padding: 6rem 0 .5rem 0;
+        }
+
+        &__content {
+            padding: 5rem 1.5rem 2rem 1.5rem;
+        }
+
+        &__section {
+            margin-bottom: 2rem;
+        }
+
+        &__item-title-container {
+            display: grid;
+            grid-template-columns: max-content auto;
+            align-items: center;
+            margin-bottom: 1rem;
+
+        }
+
+        &__item-title {
+            display: flex;
+            font-weight: 700;
+            font-size: 1.75rem;
+        }
+
+        &__item-title-line {
+            display: block;
+            margin-left: 1rem;
+            width: 100%;
+            height: 1px;
+            background-color: $borderColor;
+        }
+
+        &__item-description {
+            text-align: justify;
+            font-size: .9rem;
+            color: $textColorTertiary;
+
+            p {
+                margin-bottom: 1rem;
+            }
+        }
+
+        &__commercial-projects {
+
+        }
+
+    }
+}

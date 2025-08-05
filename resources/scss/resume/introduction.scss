@@ -1,0 +1,185 @@
+@use '../variables' as *;
+
+@mixin introduction-section {
+    .introduction {
+        position: relative;
+        overflow: hidden;
+
+        &__container {
+            margin: 0 auto;
+            padding: 0 1rem;
+
+            @media (min-width: $lg) {
+                display: grid;
+                grid-template-columns: 50% 50%;
+            }
+        }
+
+        &__avatar {
+
+            .avatar {
+                height: 34rem;
+                width: 100%;
+                object-fit: cover;
+
+                @media (min-width: $lg) {
+                    position: absolute;
+                    top: 0;
+                    bottom: 0;
+                    left: 0;
+                    width: 50%;
+                }
+            }
+        }
+
+        &__intro {
+            position: relative;
+            padding-top: 5rem;
+        }
+
+        &__intro-main {
+
+            .title {
+                font-weight: 700;
+                font-size: 1.5rem;
+                padding: 1rem 0;
+
+                @media (min-width: $lg) {
+                    padding: 1.5rem 1rem;
+                }
+            }
+
+            .description {
+                width: 34rem;
+                font-weight: 500;
+
+                padding: 1rem 0;
+                color: $textColorSecondary;
+
+
+                @media (min-width: $lg) {
+                    padding: 1rem 1rem;
+                }
+            }
+        }
+
+        &__intro-contact {
+            position: relative;
+            padding: 1rem 0;
+
+            background-color: $primaryLightColor;
+
+            &::before {
+                content: "";
+                position: absolute;
+                background: $accentColor;
+                bottom: 0;
+                top: 0;
+                width: 20px;
+                left: -20px;
+                z-index: 10;
+            }
+
+            &::after {
+                content: "";
+                top: 0;
+                position: absolute;
+                background: $primaryLightColor;
+                bottom: 0;
+                right: -1200px;
+                width: 1200px;
+            }
+
+            .contact-list {
+                padding: 0 1rem;
+                list-style: none;
+            }
+
+            .contact-item {
+                font-size: .8rem;
+                margin-bottom: .75rem;
+
+                &:last-child {
+                    margin-bottom: 0;
+                }
+            }
+
+            .title {
+                display: inline-block;
+                width: 100px;
+                font-weight: 700;
+            }
+
+            .subtitle {
+                font-weight: 500;
+            }
+        }
+
+
+    }
+
+    .introduction-skills {
+        border-bottom: 1px solid $borderColor;
+        border-top: 1px solid $borderColor;
+
+        &__container {
+            margin: 0 auto;
+        }
+
+
+        &__items {
+            list-style: none;
+            display: grid;
+            grid-template-columns: 50% 50%;
+
+
+            @media (min-width: $lg) {
+                grid-template-columns: 25% 25% 25% 25%;
+            }
+        }
+
+        &__item {
+            padding: 2rem 1rem;
+            text-align: center;
+
+            &:nth-child(odd) {
+                border-right: 1px solid $borderColor;
+            }
+
+            @media (min-width: $lg) {
+                border-right: 1px solid $borderColor;
+
+                &:last-child {
+                    border-right: none;
+                }
+            }
+
+            .icon {
+                display: block;
+
+                i, svg {
+                    font-size: 2rem;
+                    color: $accentColor;
+                }
+
+                svg {
+                    margin: 0 auto;
+                    height: 2rem;
+                    width: 2rem;
+                }
+
+                svg > path {
+                    fill: $accentColor;
+                }
+            }
+
+            .title {
+                display: block;
+                font-weight: 700;
+                font-size: 1rem;
+                margin-top: .5rem;
+            }
+        }
+    }
+
+}
