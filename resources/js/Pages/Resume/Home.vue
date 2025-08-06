@@ -57,7 +57,7 @@ onUnmounted(() => {
 </script>
 
 <template>
-    <header id="home" class="welcome-header" ref="headerSection" >
+    <header id="home" class="welcome-header" ref="headerSection" style="background-image: url('./images/welcome-background-main.jpg');">
         <div class="welcome-header__container">
             <div class="welcome-header__container-title">
                 <span class="welcome-header__iconWrapper">
