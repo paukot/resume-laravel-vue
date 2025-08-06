@@ -9,9 +9,10 @@ class UserSeeder extends Seeder
 {
     public function run(): void
     {
-        User::updateOrCreate([
-            'email' => 'test@example.com',
-        ], User::factory()->make());
+        User::updateOrCreate(
+            ['email' => 'test@example.com',],
+            User::factory()->make()->toArray()
+        );
 
     }
 }
