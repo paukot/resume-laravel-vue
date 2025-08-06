@@ -105,6 +105,12 @@ return [
         ),
     ],
 
+    'trusted_hosts' => [
+        ...array_filter(
+            explode(',', (string) env('APP_TRUSTED_HOSTS', ''))
+        ),
+    ],
+
     /*
     |--------------------------------------------------------------------------
     | Maintenance Mode Driver
