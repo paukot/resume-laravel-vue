@@ -11,8 +11,7 @@ class UserSeeder extends Seeder
     {
         User::updateOrCreate(
             ['email' => 'test@example.com',],
-            User::factory()->make()
-                ->except(['profile_photo_url'])->toArray()
+            User::factory()->make()->except(['profile_photo_url'])
         );
 
     }
