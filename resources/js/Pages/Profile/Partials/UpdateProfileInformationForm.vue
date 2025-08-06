@@ -17,6 +17,9 @@ const form = useForm({
     _method: 'PUT',
     name: props.user.name,
     email: props.user.email,
+    contact_email: props.user.contact_email,
+    github: props.user.github,
+    linkedin: props.user.linkedin,
     photo: null,
 });
 
@@ -143,7 +146,7 @@ const clearPhotoFileInput = () => {
             </div>
 
             <!-- Email -->
-            <div class="col-span-6 sm:col-span-4">
+            <div class="col-span-6 sm:col-span-3">
                 <InputLabel for="email" value="Email" />
                 <TextInput
                     id="email"
@@ -175,7 +178,45 @@ const clearPhotoFileInput = () => {
                     </div>
                 </div>
             </div>
+
+            <!-- Contact Email -->
+            <div class="col-span-6 sm:col-span-3">
+                <InputLabel for="contactEmail" value="Contact Email" />
+                <TextInput
+                    id="contact_email"
+                    v-model="form.contact_email"
+                    type="email"
+                    class="mt-1 block w-full"
+                    autocomplete="email"
+                />
+                <InputError :message="form.errors.contact_email" class="mt-2" />
+            </div>
+
+            <!-- Github link -->
+            <div class="col-span-6 sm:col-span-3">
+                <InputLabel for="github" value="Github" />
+                <TextInput
+                    id="github"
+                    v-model="form.github"
+                    type="text"
+                    class="mt-1 block w-full"
+                />
+                <InputError :message="form.errors.github" class="mt-2" />
+            </div>
+
+            <!-- Linkedin -->
+            <div class="col-span-6 sm:col-span-3">
+                <InputLabel for="linkedin" value="LinkedIn" />
+                <TextInput
+                    id="linkedin"
+                    v-model="form.linkedin"
+                    type="text"
+                    class="mt-1 block w-full"
+                />
+                <InputError :message="form.errors.github" class="mt-2" />
+            </div>
         </template>
+
 
         <template #actions>
             <ActionMessage :on="form.recentlySuccessful" class="me-3">
