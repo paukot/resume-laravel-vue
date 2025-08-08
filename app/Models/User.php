@@ -30,6 +30,9 @@ class User extends Authenticatable
         'email',
         'password',
         'display_on_resume',
+        'contact_email',
+        'github',
+        'linkedin',
     ];
 
     /**

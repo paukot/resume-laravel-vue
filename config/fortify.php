@@ -101,7 +101,7 @@ return [
     |
     */
 
-    'middleware' => ['web'],
+    'middleware' => ['web', 'inertia:admin'],
 
     /*
     |--------------------------------------------------------------------------
@@ -156,4 +156,32 @@ return [
         ]),
     ],
 
+    'paths' => [
+        'login' => '/admin/login',
+        'logout' => '/admin/logout',
+        'password' => [
+            'request' => '/admin/password/request',
+            'reset' => '/admin/password/reset',
+            'email' => '/admin/password/email',
+            'update' => '/admin/password/update',
+            'confirm' => '/admin/password/confirm',
+            'confirmation' => '/admin/password/confirmation',
+        ],
+        'register' => '/admin/register',
+
+        'two-factor' => [
+            'login' => '/admin/two-factor/login',
+            'confirm' => '/admin/two-factor/confirm',
+            'recovery-codes' => '/admin/two-factor/recovery-codes',
+        ],
+    ],
+
+    'redirects' => [
+        'login' => '/admin/dashboard',
+        'logout' => '/',
+        'password-confirmation' => '/admin/dashboard',
+        'register' => '/admin/dashboard',
+        'email-verification' => '/admin/dashboard',
+        'password-reset' => '/admin/dashboard',
+    ],
 ];

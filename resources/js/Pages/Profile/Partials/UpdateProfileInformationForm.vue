@@ -62,7 +62,7 @@ const updatePhotoPreview = () => {
 };
 
 const deletePhoto = () => {
-    router.delete(route('current-user-photo.destroy'), {
+    router.delete(route('admin.user.current-user-photo.destroy'), {
         preserveScroll: true,
         onSuccess: () => {
             photoPreview.value = null;
