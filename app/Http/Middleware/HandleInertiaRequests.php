@@ -2,10 +2,8 @@
 
 namespace App\Http\Middleware;
 
-use Closure;
 use Illuminate\Http\Request;
 use Inertia\Middleware;
-use Symfony\Component\HttpFoundation\Response;
 use Tighten\Ziggy\Ziggy;
 
 class HandleInertiaRequests extends Middleware
@@ -23,23 +21,6 @@ class HandleInertiaRequests extends Middleware
     public function version(Request $request): ?string
     {
         return parent::version($request);
-    }
-
-
-    /**
-     * Handle the incoming request.
-     *
-     * @param Request $request
-     * @param Closure $next
-     * @return Response
-     */
-    public function handle(Request $request, Closure $next): Response
-    {
-        if ($rootView = func_get_args()[2] ?? null) {
-            $this->rootView = $rootView;
-        }
-
-        return parent::handle($request, $next);
     }
 
     /**
