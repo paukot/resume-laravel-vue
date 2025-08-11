@@ -30,7 +30,7 @@ class HandleInertiaRequests extends Middleware
      * Handle the incoming request.
      *
      * @param Request $request
-     * @param  Closure  $next
+     * @param Closure $next
      * @return Response
      */
     public function handle(Request $request, Closure $next): Response
@@ -51,9 +51,9 @@ class HandleInertiaRequests extends Middleware
     {
         return [
             ...parent::share($request),
-            'general' => fn () => __('general'),
-            'resume' => fn () => __('resume'),
-            'ziggy' => fn () => [
+            'general' => fn() => __('general'),
+            'resume' => fn() => __('resume'),
+            'ziggy' => fn() => [
                 ...(new Ziggy)->toArray(),
                 'location' => $request->url(),
             ],

@@ -2,10 +2,6 @@
 import Button from "primevue/button";
 
 const props = defineProps({
-    href: {
-        type: String,
-        default: '#',
-    },
     buttonSize: {
         type: String,
         default: 'small',
@@ -31,7 +27,6 @@ const props = defineProps({
 
 <template>
     <Button :class="props.classes" label="Danger" severity="danger" :size="props.buttonSize" raised
-            as="a"
             v-tooltip="tooltipText" :placeholder="props.placing"
     >
         <i class="pi pi pi-trash" :style="'font-size: ' + props.iconSize"></i>

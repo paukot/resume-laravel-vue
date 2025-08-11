@@ -13,7 +13,7 @@ const props = defineProps({
     },
     tooltipText: {
         type: String,
-        default: 'Edit',
+        default: 'New',
     },
     classes: {
         type: String,
@@ -36,10 +36,10 @@ const visitSite = (link: string) => {
 </script>
 
 <template>
-    <Button :class="props.classes" label="Warn" severity="warn" :size="props.buttonSize" raised
+    <Button :class="props.classes" label="Success" severity="success" :size="props.buttonSize" raised
             @click="visitSite(props.href)"
             v-tooltip="tooltipText" :placeholder="props.placing"
     >
-        <i class="pi pi-pen-to-square" :style="'font-size: ' + props.iconSize"></i>
+        <i class="pi pi-plus" :style="'font-size: ' + props.iconSize"></i>
     </Button>
 </template>
